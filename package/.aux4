@@ -1,0 +1,85 @@
+{
+  "scope": "aux4",
+  "name": "system-installer-yum",
+  "description": "aux4 system installer for yum (Linux)",
+  "version": "0.0.1",
+  "git": "https://github.com/aux4/system-installer-yum",
+  "platforms": [
+    "linux"
+  ],
+  "dependencies": [
+    "aux4/pkger"
+  ],
+  "tags": [
+    "aux4",
+    "system-installer",
+    "system-installer-linux",
+    "linux",
+    "yum",
+    "rhel",
+    "centos",
+    "amazon-linux"
+  ],
+  "profiles": [
+    {
+      "name": "aux4:pkger:system",
+      "commands": [
+        {
+          "name": "yum",
+          "execute": [
+            "profile:aux4:pkger:system:yum"
+          ],
+          "help": {
+            "text": "Manage yum packages"
+          }
+        },
+        {
+          "name": "linux",
+          "execute": [
+            "profile:aux4:pkger:system:yum"
+          ],
+          "help": {
+            "text": "Manage linux packages"
+          }
+        }
+      ]
+    },
+    {
+      "name": "aux4:pkger:system:yum",
+      "commands": [
+        {
+          "name": "install",
+          "execute": [
+            "yum install -y ${package}"
+          ],
+          "help": {
+            "text": "Install yum package",
+            "variables": [
+              {
+                "name": "package",
+                "text": "The package name",
+                "arg": true
+              }
+            ]
+          }
+        },
+        {
+          "name": "uninstall",
+          "execute": [
+            "yum remove -y ${package}"
+          ],
+          "help": {
+            "text": "Uninstall yum package",
+            "variables": [
+              {
+                "name": "package",
+                "text": "The package name",
+                "arg": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
