@@ -2,7 +2,7 @@
   "scope": "aux4",
   "name": "system-installer-yum",
   "description": "aux4 system installer for yum (Linux)",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "git": "https://github.com/aux4/system-installer-yum",
   "platforms": [
     "linux"
